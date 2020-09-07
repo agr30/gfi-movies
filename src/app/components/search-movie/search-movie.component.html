@@ -1,1 +1,24 @@
-<p>search-movie works!</p>
+<div class="col-md-12 container-fluid">
+  <div class="row">
+    <h2 class="text-center m-auto">Buscar Peliculas por Título</h2>
+  </div>
+
+  <div class="row mt-5">
+    <form class="col-md-12" [formGroup]="searchForm">
+      <div class="form-group form-inline justify-content-center input-group-append">
+        <!--<label class="col-md-3 text-center align-middle" for="movieSearch">Introduce un título:</label>-->
+        <input type="text" formControlName="title" placeholder="Título" class="form-control col-md-6" id="movieSearch">
+        <button class="btn btn-info col-md-2 ml-5" (click)="searchMovie()">Buscar</button>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="movies" class="row card m-auto" style="width: 18rem;">
+    <img src="{{movies.Poster}}" class="card-img-top" alt="movie-poster">
+    <div class="card-body">
+      <h5 class="card-title">{{movies.Title}}</h5>
+      <p class="card-text">{{movies.Plot}}</p>
+      <button class="btn btn-primary" (click)="saveMovie()">Añadir a Favoritos</button>
+    </div>
+  </div>
+</div>

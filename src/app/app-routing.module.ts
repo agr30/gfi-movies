@@ -9,7 +9,8 @@ import {AuthGuardService} from './shared/guards/auth-guard.service';
 const routes: Routes = [
   { path: 'home', component: SearchMovieComponent, canActivate: [AuthGuardService] },
   { path: 'myfavs', component: UserFavoritesComponent, canActivate: [AuthGuardService] },
-  {path : '', component : LoginComponent}];
+  { path : '', component : LoginComponent},
+  { path: '**', redirectTo: ''}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
