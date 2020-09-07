@@ -20,6 +20,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     const { url, method, body} = request;
 
     // @ts-ignore
+    // It simulates a delay on login
     return of(null)
       .pipe(mergeMap(handleRoute))
       .pipe(materialize())
@@ -43,13 +44,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         id: user.id,
         username: user.userName,
         firstName: user.firstName,
-        lastName: user.lastName,
-        token: 'fake-jwt-token'
+        lastName: user.lastName
       });
     }
 
-    function ok(body?): any {
-      return of(new HttpResponse({ status: 200, body }));
+    function ok(bodyResp?): any {
+      return of(new HttpResponse({ status: 200, body: bodyResp }));
     }
 
     function error(message): any {

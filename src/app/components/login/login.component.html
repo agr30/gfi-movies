@@ -2,17 +2,17 @@
 <h2>Login</h2>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="userName">Username</label>
+    <label for="userName">Nombre de Usuario</label>
     <input type="text" id="userName" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls.userName.errors }" />
     <div *ngIf="submitted && formControls.userName.errors" class="invalid-feedback">
-      <div *ngIf="formControls.userName.errors.required">Username is required</div>
+      <div *ngIf="formControls.userName.errors.required">El nombre de usuario es obligatorio</div>
     </div>
   </div>
   <div class="form-group">
-    <label for="password">Password</label>
+    <label for="password">Contraseña</label>
     <input type="password" id="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls.password.errors }" />
     <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
-      <div *ngIf="formControls.password.errors.required">Password is required</div>
+      <div *ngIf="formControls.password.errors.required">La contraseña es obligatoria</div>
     </div>
   </div>
   <div class="form-group">

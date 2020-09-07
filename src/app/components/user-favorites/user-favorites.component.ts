@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../shared/services/user.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Movie } from '../../shared/model/movie';
 
 @Component({
   selector: 'app-user-favorites',
@@ -8,18 +7,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./user-favorites.component.scss']
 })
 export class UserFavoritesComponent implements OnInit {
-  searchForm: FormGroup;
-  movies: object;
+  movies: Movie;
 
-  constructor(private userService: UserService,
-              private formBuilder: FormBuilder) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.searchForm = this.formBuilder.group({
-      title: ['', Validators.required]
-    });
+    if (localStorage.getItem('favoritesMovies')) {
+      this.movies = JSON.parse(localStorage.getItem('favoritesMovies'));
+    }
   }
-
-
-
 }

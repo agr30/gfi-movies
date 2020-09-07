@@ -1,1 +1,17 @@
+<div class="col-md-12 container-fluid">
+  <div class="row">
+    <h2 class="text-center m-auto">Tus Favoritos</h2>
+  </div>
 
+  <div *ngIf="!movies" class="alert alert-danger mt-5">No tienes favoritos aún guardados</div>
+
+  <div *ngIf="movies" class="card-columns mt-5">
+      <div class="card border border-primary" *ngFor="let movie of movies">
+        <img src="{{movie.Poster}}" class="card-img-top img-fluid" alt="movie-poster">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.Title}}</h5>
+          <p class="card-text">{{movie.Plot}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

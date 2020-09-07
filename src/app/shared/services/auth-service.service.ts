@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { GlobalConstants } from '../constants/global-constants';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import Global = WebAssembly.Global;
 
 @Injectable({
   providedIn: 'root'
@@ -34,8 +33,5 @@ export class AuthServiceService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
-
-
-
 }
 

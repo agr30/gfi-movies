@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthServiceService
   ) {
     if (this.authService.currentUserValue) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     }
   }
 
@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
       userName: ['', Validators.required],
       password: ['', Validators.required]
     });
-
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
   }
 
@@ -43,9 +42,8 @@ export class LoginComponent implements OnInit {
   onSubmit(): any {
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.loginForm.invalid) {
-      return;
+      return null;
     }
 
     this.loading = true;
